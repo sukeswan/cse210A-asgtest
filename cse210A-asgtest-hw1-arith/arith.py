@@ -1,4 +1,5 @@
 import sys
+import random
 print("\n..... arith.py starting .....\n")
 
 # types for nodes 
@@ -7,22 +8,7 @@ INTEGER = 'INTEGER'
 PLUS    = 'PLUS'
 MINUS   = 'MINUS'
 MUL     = 'MUL'
-DIV     = 'DIV'
 
-# nodes will type plus string character for operation 
-# example: Node(MUL, "*")
-
-class Node(object):
-    def __init__(self, type, value):
-        self.type = type
-        self.value = value
-
-    # String reprsentation for testing
-    def __str__(self):
-        return 'Node({type}, {value})'.format(
-            type=self.type,
-            value=repr(self.value)
-        )
 
 # an AST can either be a math operation or just an integer
 class AST(object):
@@ -30,31 +16,111 @@ class AST(object):
 
 # Math operations are binary nodes with the root being the math operation 
 class MathOp(AST):
-    def __init__(self, left, op, right):
+    def __init__(self, left, right, op):
         self.left = left
         self.op = op
         self.right = right
 
 class Int(AST):
-    def __init__(self, node):
-        self.node = node
-        self.value = node.value
+    def __init__(self, value):
+        self.value = value
+        self.op = INTEGER
+
+# interpret the nodes and perform functions
+def interpreter(node):
+    if(node.op==INTEGER):
+        return (node.value)
+    elif(node.op==MUL):
+        return (interpreter(node.left) * interpreter(node.right))
+    elif(node.op==PLUS):
+        return (interpreter(node.left) + interpreter(node.right))
+    elif(node.op==MINUS):
+        return (interpreter(node.left) - interpreter(node.right))
+
+# a function to run tests
+def test(id,a,b,op):
+    valA = Int(a)
+    valB = Int(b)
+    tester= MathOp(valA, valB, op)
+    
+    check2 = 0 
+
+    check1 = interpreter(tester)
+    if(op==MUL):
+        check2 = a*b
+    elif(op==PLUS):
+        check2 = a+b
+    elif(op==MINUS):
+        check2 = a-b
+    
+    if(check1!=check2):
+        print("TEST {} FAILED".format(id))
+        print("A= {} B= {} w/ operation {}".format(a,b,op))
+        return False
+    
+    return True
+
+def run_basic_tests():
+
+    all_passed = True
+    
+    while(all_passed):
+
+        for i in range(10):
+            a = random.randint(0,10)
+            b = random.randint(1,11)
+
+            all_passed = test(i+0.1, a,b,MUL)
+            all_passed = test(i+0.2, a,b,PLUS)
+            all_passed = test(i+0.3, a,b,MINUS)
+        
+        break
+    
+    if(all_passed):
+        print("ALL BASIC TESTS PASSED\n")
+
+
+def lexer(raw_data):
+    # process the raw_data into list of tokens
+    tokens = []
+    opIndicies = []
+    cur = 0 
+    for chars in raw_data:
+        #skip whitespaces
+        if(chars == ' '):
+            continue
+        if(chars in "*+-"):
+            opIndicies.append(cur)
+        
+        tokens.append(chars)
+        cur+=1
+    
+    #keep track of indicies that need to be deleted
+    delInd = []
+
+    # bind - signs to negative values
+    for i in opIndicies:
+        if(tokens[i]=='-' and tokens[i-1] in "*+-"):
+            tokens[i] = tokens[i] + tokens[i+1]
+            delInd.append(i+1)
+    
+    final_tokens = []
+    #copy over indicies 
+    for i in range(len(tokens)):
+        if(i in delInd):
+            continue
+        else:
+            final_tokens.append(tokens[i])
+
+    print(final_tokens)
 
 
 
 
 
+lexer("6 + -3 * 8")
 
 
-#define the math operations 
-mul_node = Node(MUL, '*')
-plus_node = Node(PLUS, '+')
-minus_node = Node(MINUS, '-')
-div_node = Node(DIV, '/')
-
-
-
-
-print("...... arith.py ending ......\n")
+print("\n...... arith.py ending ......\n")
 # inp = input(sys.stdin)
 # print (inp)
