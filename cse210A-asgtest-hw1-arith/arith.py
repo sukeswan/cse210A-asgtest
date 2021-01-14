@@ -82,6 +82,7 @@ def run_basic_tests():
 
 def lexer(raw_data):
     # process the raw_data into list of tokens
+
     tokens = []
     opIndicies = []
     cur = 0 
@@ -100,6 +101,9 @@ def lexer(raw_data):
 
     # bind - signs to negative values
     for i in opIndicies:
+        if(i==0):
+            tokens[1] = tokens[0] + tokens[1]
+            delInd.append(0)
         if(tokens[i]=='-' and tokens[i-1] in "*+-"):
             tokens[i] = tokens[i] + tokens[i+1]
             delInd.append(i+1)
@@ -111,8 +115,27 @@ def lexer(raw_data):
             continue
         else:
             final_tokens.append(tokens[i])
+    
+    # keep track of new operational indicies 
+    opIndicies = []
+    cur = 0
+    for chars in final_tokens:
+        if(chars in "*+-"):
+            opIndicies.append(cur)
+        cur+=1
+
 
     print(final_tokens)
+    print(opIndicies)
+
+# buildAST(tokens, rootIndex):
+#     root= tokens[rootIndex]
+#     if(root not in "-+*"):
+#         return Int(root)
+#     elif(root == "-"):
+#         return MathOp(left,right,MINUS)
+#     elif(root == "-"):
+#     elif(root == "-"):
 
 
 
