@@ -82,8 +82,8 @@ class Parser(object):
         self.lexer = lexer
         self.curr_token = lexer.get_next_token()
 
-    #function to deal with integer types 
-    def numbers(self):
+    # function to deal with integer types 
+    def get_numbers(self):
         token = self.curr_token
         if token.type == INT:
             return Num(token)
@@ -92,18 +92,43 @@ class Parser(object):
             self.curr_token = self.lexer.get_next_token()
             token.value = -1 * token.value
             return Num(token)
-    
+
+    # for a multiply expression get the fist number, and make a math operation
     def multiply(self):
-        
-
-
-
-
-
-
+        first_num = self.get_numbers()
+        if self.curr_token == MUL:
+            return MathOp(first_num,self.get_numbers(),self.curr_token)
     
+    # to made additiion and subtraction nodes 
+    def expression(self):
+        node = self.multiply
 
-
+        while self.curr_token.type in (ADD,SUB):
+            token = self.curr_token
+            if token.type == ADD:
+                return MathOp(node,self.multiply(), ADD)
+            elif token.type == SUB:
+                return MathOp(node,self.multiply(), SUB)
     
+    def parse(self):
+        return self.expression()
 
-
+class Interpreter(object):
+    def __init__(self,root):
+        self.root = root
+    
+    # interpret the nodes and perform functions
+    def solve(self,root):
+        if(root.op==INT):
+            return (root.value)
+        elif(root.op==MUL):
+            return (self.solve(root.left) * self.solve(root.right))
+        elif(root.op==ADD):
+            return (self.solve(root.left) + self.solve(root.right))
+        elif(root.op==SUB):
+            return (self.solve(root.left) - self.solve(root.right))
+    
+    # pase tree then sove tree 
+    def driver(self):
+        tree = self.root.parse()
+        return self.solve(tree)
