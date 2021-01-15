@@ -120,6 +120,12 @@ class Parser(object):
         if(token.type == INT):
             self.get_token(INT)
             return Num(token)
+        elif token.type == SUB:
+            self.curr_token = self.lexer.next_token()
+            token = self.curr_token
+            token.value = -1 * self.curr_token.value
+            self.curr_token  = self.lexer.next_token()
+            return Num(token)
     
     def term(self):
         node = self.factor()
@@ -196,7 +202,7 @@ def main():
     
     while True:
         try:
-            raw_data = ("2 + 3 * 5 - 6")
+            raw_data = ("-2 + 3 * 5 + -6")
             #raw_data = input("")
             
         except EOFError:
