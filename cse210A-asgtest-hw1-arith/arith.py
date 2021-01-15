@@ -1,4 +1,3 @@
-
 import sys
 
 # macros for data types
@@ -125,7 +124,7 @@ class Parser(object):
         elif token.type == SUB:
             self.curr_token = self.lexer.next_token()
             token = self.curr_token
-            token.value = -1 * self.curr_token.value
+            token.value = -1 * token.value
             self.curr_token  = self.lexer.next_token()
             return Num(token)
     
@@ -161,18 +160,20 @@ class Parser(object):
         return self.expr()
 
 
+# solve a subtree based on the type of node
 class VisitTree(object):
     def visit(self, node):
-        method_name = 'visit_' + type(node).__name__
-        visitor = getattr(self, method_name)
+        method = 'solve_' + type(node).__name__
+        visitor = getattr(self, method)
         return visitor(node)
-    
+
+# interpreter to evaluate AST Tree
 class Interpreter(VisitTree):
     def __init__(self,parser):
         self.parser = parser
 
     # interpret the nodes and perform functions
-    def visit_MathOp(self,node):
+    def solve_MathOp(self,node):
         
         if(node.op.type==MUL):
             return (self.visit(node.left) * self.visit(node.right))
@@ -181,7 +182,7 @@ class Interpreter(VisitTree):
         elif(node.op.type==SUB):
             return (self.visit(node.left) - self.visit(node.right))
 
-    def visit_Num(self,node):
+    def solve_Num(self,node):
         return (node.value)
     
     # pase tree then sove tree 

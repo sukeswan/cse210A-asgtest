@@ -1,7 +1,16 @@
 # Test scripts for CSE201A
 
-Please merge your homework with the repepctive test script repository. You should include a *Makefile* 
-such that running make in the root directory of your submission produces a file in the root directory.
-The file, when executed, should read the strings via stdin and output the required content via stdout.
+To run this project: 
+
+1. Clone the repo or download the source code. If cloning, please make sure to switch over to the branch called `version3`. That is the most up to date branch. That can be done by running the command `git checkout version`
+
+2. Run the test cases with the command `./test.sh`. This will execute the arith executable made with pyinstaller. 
+
+3. To manually run the test cases, use the command `make`. 
+
+NOTE: When running the test cases, the program will ask for user standard input. You can type in a dummy test case like `4 + 7` or just press `CMD` and `D` and the test script will continue as normal.
+
+
+
 
 These test scripts are prepared based on [Sohum Banerjea's work](https://github.com/SohumB/cse210A-asgtest/tree/master).
