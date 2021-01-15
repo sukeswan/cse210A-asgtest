@@ -115,7 +115,8 @@ class Parser(object):
             self.curr_token = self.lexer.next_token()
         else:
             self.error()
-    
+
+    # recursive calls to factor will give highest precedence to to integers to be evaluate first
     def factor(self):
         token = self.curr_token
         if(token.type == INT):
@@ -128,6 +129,7 @@ class Parser(object):
             self.curr_token  = self.lexer.next_token()
             return Num(token)
     
+    # term will give the next level of precedence to multiplication 
     def term(self):
         node = self.factor()
 
@@ -140,7 +142,7 @@ class Parser(object):
         
         return node
 
-    
+    # the last level of priority is addition and subtraction, which have the same priority 
     def expr(self):
         node = self.term()
 
@@ -181,6 +183,7 @@ class Interpreter(VisitTree):
             return (self.visit(node.left) + self.visit(node.right))
         elif(node.op.type==SUB):
             return (self.visit(node.left) - self.visit(node.right))
+        
 
     def solve_Num(self,node):
         return (node.value)
