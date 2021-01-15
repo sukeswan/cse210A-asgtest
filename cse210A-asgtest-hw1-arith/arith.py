@@ -164,11 +164,8 @@ class Parser(object):
 class VisitTree(object):
     def visit(self, node):
         method_name = 'visit_' + type(node).__name__
-        visitor = getattr(self, method_name, self.generic_visit)
+        visitor = getattr(self, method_name)
         return visitor(node)
-
-    def generic_visit(self, node):
-        raise Exception('No visit_{} method'.format(type(node).__name__))
     
 class Interpreter(VisitTree):
     def __init__(self,parser):
@@ -176,12 +173,10 @@ class Interpreter(VisitTree):
 
     # interpret the nodes and perform functions
     def visit_MathOp(self,node):
-        #print("in solve")
         
         if(node.op.type==MUL):
             return (self.visit(node.left) * self.visit(node.right))
         elif(node.op.type==ADD):
-            #print("in add")
             return (self.visit(node.left) + self.visit(node.right))
         elif(node.op.type==SUB):
             return (self.visit(node.left) - self.visit(node.right))
