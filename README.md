@@ -4,11 +4,11 @@ To run this project:
 
 1. Clone the repo or download the source code. If cloning, please make sure to switch over to the branch called `version3`. That is the most up to date branch. That can be done by running the command `git checkout version`
 
-2. Run the test cases with the command `./test.sh`. This will execute the arith executable made with pyinstaller. 
+2. Run the test cases with the command `./test.sh`. This will run makefile which will download pyinstaller onto your computer, make an executable callled arith, and then run the test cases.
 
-3. To manually run the test cases, use the command `make`. 
+3. To manually run the test cases, use the command `make mainn`. 
 
-NOTE: When running the test cases, the program will ask for user standard input. You can type in a dummy test case like `4 + 7` or just press `CMD` and `D` and the test script will continue as normal.
+NOTE: As I am just learning what ASTs are and how to use them, I followed the tutorial linked [here](https://ruslanspivak.com/lsbasi-part7/). It comes reccomended by Prof Flanagan and Sherry, the TA. I also worked with Donald Stewart on the Makefile and we talked about ASTs and programming languages. 
 
 
 

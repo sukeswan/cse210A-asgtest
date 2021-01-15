@@ -17,5 +17,5 @@ load harness
 }
 
 @test "custom-5" {
-  check '5 + 5 * 2 + 6 * 2' '27'
+  check '5 + 5 * 2 - 6 - 2' '27'
 }
