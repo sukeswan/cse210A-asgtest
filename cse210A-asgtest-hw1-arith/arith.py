@@ -39,12 +39,13 @@ class Lexer(object):
         # otherwise set the character
         else:
             self.current = self.text[self.index]
-     
+
+    # skip will be used to skip white spaces in the raw data
     def skip(self):
          while self.current is not None and self.current.isspace():
              self.next_char()
 
-    #deal with integer being multiple digits
+    # deal with integer being multiple digits by parsing mutiple digits together
     def big_num(self):
         result = ''
         while self.current is not None and self.current.isdigit():
@@ -53,31 +54,32 @@ class Lexer(object):
         casted = int(result)
         return casted
 
+    # used to get the next token from the lexer format type will be Token(type,value)
     def next_token(self):
         while self.current is not None:
 
             if(self.current.isspace()):
-                print("skipping")
+                #print("skipping")
                 self.next_char()
 
             if self.current.isdigit():
                 value = self.big_num()
-                print("get_next_token() returning int token {}".format(value))
+                #print("get_next_token() returning int token {}".format(value))
                 return Token(INT,value)
 
             elif self.current == '*':
                 self.next_char()
-                print("get_next_token() returning mul token")
+                #print("get_next_token() returning mul token")
                 return Token(MUL,'*')
 
             elif self.current == '+':
                 self.next_char()
-                print("get_next_token() returning add token")
+                #print("get_next_token() returning add token")
                 return Token(ADD,'+')
 
             elif self.current == "-":
                 self.next_char()
-                print("get_next_token() returning sub token")
+                #print("get_next_token() returning sub token")
                 return Token(SUB,'-')
         
         return Token(EOF, None)
@@ -174,12 +176,12 @@ class Interpreter(VisitTree):
 
     # interpret the nodes and perform functions
     def visit_MathOp(self,node):
-        print("in solve")
+        #print("in solve")
         
         if(node.op.type==MUL):
             return (self.visit(node.left) * self.visit(node.right))
         elif(node.op.type==ADD):
-            print("in add")
+            #print("in add")
             return (self.visit(node.left) + self.visit(node.right))
         elif(node.op.type==SUB):
             return (self.visit(node.left) - self.visit(node.right))
@@ -193,8 +195,8 @@ class Interpreter(VisitTree):
         return self.visit(tree)
 
 def main():
-    checker = Num(Token(INT,6))
-    print(type(checker))
+    #checker = Num(Token(INT,6))
+    #print(type(checker))
     # token_t0 = Token(INT, 5)
     # token_t1 = Token(MUL,"*")
     # token_t0.token_print()
@@ -202,19 +204,19 @@ def main():
     
     while True:
         try:
-            raw_data = ("-2 + 3 * 5 + -6")
-            #raw_data = input("")
+            #raw_data = ("-2 + 3 * 5 + -6")
+            raw_data = input("")
             
         except EOFError:
             break
         
         lexer = Lexer(raw_data)
         parser = Parser(lexer)
-        print("breaker point")
+        #print("breaker point")
         interpreter = Interpreter(parser)
         result = interpreter.driver()
         print(result)
-        break
+        
 
 if __name__ == "__main__":
     main()
