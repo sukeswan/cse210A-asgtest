@@ -2,7 +2,7 @@
 
 To run this project: 
 
-1. Clone the repo or download the source code. If cloning, please make sure to switch over to the branch called `version3`. That is the most up to date branch. That can be done by running the command `git checkout version`
+1. Clone the repo or download the source code. If cloning, please make sure to switch over to the branch called `version3`. That is the most up to date branch. That can be done by running the command `git checkout version3`
 
 2. Run the test cases with the command `./test.sh`. This will run makefile which will download pyinstaller onto your computer, make an executable callled arith, and then run the test cases.
 
