@@ -12,6 +12,11 @@ To run this project:
 
 5. To delete the `arith` executable, you can run the command `make clean`
 
+
+The screenshots of the expected behavior can be found under `HW1 Output.pdf`
+
+The git logs for this project are under the `git logs` folder. Becasue I worked on three branches in sequence, I included the git logs for all three branches. I worked first with master, then version2, then version3. 
+
 NOTE: As I am just learning what ASTs are and how to use them, I followed the tutorial linked [here](https://ruslanspivak.com/lsbasi-part7/). It comes reccomended by Prof Flanagan and Sherry, the TA. I also worked with Donald Stewart on the Makefile and we talked about ASTs and programming languages. 
 
 
