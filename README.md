@@ -6,7 +6,9 @@ To run this project:
 
 2. Run the test cases with the command `./test.sh`. This will run makefile which will download pyinstaller onto your computer, make an executable callled arith, and then run the test cases.
 
-3. To manually run the test cases, use the command `make mainn`. 
+3. To manually run the test cases, use the command `make main`. 
+
+4. To delete the `arith` executable, you can run the command `make clean`
 
 NOTE: As I am just learning what ASTs are and how to use them, I followed the tutorial linked [here](https://ruslanspivak.com/lsbasi-part7/). It comes reccomended by Prof Flanagan and Sherry, the TA. I also worked with Donald Stewart on the Makefile and we talked about ASTs and programming languages. 
 
