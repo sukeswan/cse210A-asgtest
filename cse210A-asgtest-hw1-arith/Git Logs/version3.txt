@@ -1,45 +1,74 @@
-commit d028951acce90755901f0aeccb372281ac5ad056
+commit 00b70a6f78ab44475d20194d31b947c1138b7729
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Wed Jan 13 16:15:09 2021 -0800
+Date:   Fri Jan 15 16:10:48 2021 -0800
 
-    saving changes to revert back to empty repo
+    added details to Readme
 
-commit a0a78a95719ca6d19208cc5de1c1fe31181f3cd0
+commit 0ee7f9d759728f6adca4165d259e5470b9b85f9a
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Tue Jan 12 14:43:16 2021 -0800
+Date:   Fri Jan 15 16:07:45 2021 -0800
 
-    simplified AST ,tested, and made lexer
+    typos fixed
 
-commit e640d270a72bf3459ff024c1367a265f6552ef8d
-Merge: 3c67ad8 1a9345a
+commit e77d4d4661aad16c7b3e69c2dda6c78bc34dd507
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Tue Jan 12 10:01:43 2021 -0800
+Date:   Fri Jan 15 15:51:53 2021 -0800
 
-    Merge branch 'master' of https://github.com/sukeswan/cse210A-asgtest
+    fixed typo
 
-commit 3c67ad815f5e8b95e67536b8ba65105f3e537e0f
+commit 248ec453973bf173a7985e7a91c257c7326acaa2
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Tue Jan 12 09:58:26 2021 -0800
+Date:   Fri Jan 15 15:49:46 2021 -0800
 
-    checkpoint for progress
+    added more comments
 
-commit 1a9345a07193980a15555eaea653720ee7744404
-Author: Surya Keswani <35249458+sukeswan@users.noreply.github.com>
-Date:   Tue Jan 12 09:57:42 2021 -0800
-
-    Delete main.py because local repo started new with arith.py
-
-commit 1593460e7dcf9777ccea300e70f470c36083fe8b
-Author: Surya Keswani <35249458+sukeswan@users.noreply.github.com>
-Date:   Tue Jan 12 09:57:15 2021 -0800
-
-    Delete Makefile from b/c moved to other folder in local repo
-
-commit 1dcb10950675e8f1bddd64fce1b4f63197fcb883
+commit 2875564ba190997a9d4170b1abc815aa8845a87f
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Mon Jan 11 09:12:39 2021 -0800
+Date:   Fri Jan 15 15:39:41 2021 -0800
 
-    repo updated for hw1
+    updated test custom 5 with correct ans
+
+commit ebb751ec964a78979c80191ba44a56fec0fd0a67
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Fri Jan 15 15:34:05 2021 -0800
+
+    updated readme and changed tests to have more minus testing
+
+commit aae8409e150ee93a7f2e4a55c228a5a67b61beca
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Fri Jan 15 13:54:22 2021 -0800
+
+    updated readme
+
+commit 640a376e2cbbb314db693fb97ae2311f71a230a2
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Fri Jan 15 13:30:09 2021 -0800
+
+    small changes made to arith
+
+commit 05f4d84de37114a02affbafad5b752abea993595
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Thu Jan 14 22:24:34 2021 -0800
+
+    fixed parser and negatives and made custom cases
+
+commit 50fe7da0d4df2c30dbf56ec7f0ac606edc0dca70
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Thu Jan 14 18:43:42 2021 -0800
+
+    fixed parser to deal with negative values
+
+commit c9f267e8a44d775a85b12e898bf5855e1b344cbb
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Thu Jan 14 18:38:42 2021 -0800
+
+    rewrote parser and tweaked interpt driver code for type matching
+
+commit bc699adfea6325a60c9a97f408709e6a9d8fac2f
+Author: sukeswan <suryakeswani@gmail.com>
+Date:   Thu Jan 14 17:05:36 2021 -0800
+
+    setting up new env
 
 commit 51b24e619965898465166dda213cef9f293344d7
 Author: Sherry <sherrylin42@gmail.com>

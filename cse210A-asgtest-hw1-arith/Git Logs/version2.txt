@@ -1,45 +1,26 @@
-commit d028951acce90755901f0aeccb372281ac5ad056
+commit 48e8c420bacfef44e445e605c7b05d8834026c19
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Wed Jan 13 16:15:09 2021 -0800
+Date:   Thu Jan 14 17:03:41 2021 -0800
 
-    saving changes to revert back to empty repo
+    commiting changes. switching to branch3
 
-commit a0a78a95719ca6d19208cc5de1c1fe31181f3cd0
+commit 03e58f2e43ab5b5f7afd25c46f3eabf0776f398e
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Tue Jan 12 14:43:16 2021 -0800
+Date:   Thu Jan 14 08:30:34 2021 -0800
 
-    simplified AST ,tested, and made lexer
+    finished interpreter
 
-commit e640d270a72bf3459ff024c1367a265f6552ef8d
-Merge: 3c67ad8 1a9345a
+commit a057560c910208a77aff0f80248c09e243fe0081
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Tue Jan 12 10:01:43 2021 -0800
+Date:   Wed Jan 13 20:33:07 2021 -0800
 
-    Merge branch 'master' of https://github.com/sukeswan/cse210A-asgtest
+    working on Parser
 
-commit 3c67ad815f5e8b95e67536b8ba65105f3e537e0f
+commit 7ff5062aff5a744190d6d01c7d9b3f692c85f39c
 Author: sukeswan <suryakeswani@gmail.com>
-Date:   Tue Jan 12 09:58:26 2021 -0800
+Date:   Wed Jan 13 17:43:58 2021 -0800
 
-    checkpoint for progress
-
-commit 1a9345a07193980a15555eaea653720ee7744404
-Author: Surya Keswani <35249458+sukeswan@users.noreply.github.com>
-Date:   Tue Jan 12 09:57:42 2021 -0800
-
-    Delete main.py because local repo started new with arith.py
-
-commit 1593460e7dcf9777ccea300e70f470c36083fe8b
-Author: Surya Keswani <35249458+sukeswan@users.noreply.github.com>
-Date:   Tue Jan 12 09:57:15 2021 -0800
-
-    Delete Makefile from b/c moved to other folder in local repo
-
-commit 1dcb10950675e8f1bddd64fce1b4f63197fcb883
-Author: sukeswan <suryakeswani@gmail.com>
-Date:   Mon Jan 11 09:12:39 2021 -0800
-
-    repo updated for hw1
+    restarted, made Tokens for input and lexer to tokenize data
 
 commit 51b24e619965898465166dda213cef9f293344d7
 Author: Sherry <sherrylin42@gmail.com>
