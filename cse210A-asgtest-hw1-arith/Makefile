@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 all:
-	#pip install pyinstaller
+	pip install pyinstaller
 	pyinstaller --onefile arith.py
 	mv dist/arith .
 	rm arith.spec 
